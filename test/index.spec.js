@@ -120,6 +120,14 @@ describe('Value Source', function () {
       expect(sources.bbb).toBeDefined();
     });
 
+    it('should add deep nested source', function () {
+      const fn = function () {};
+      const source_getter = constructSourceGetter();
+      source_getter.addSources({aaa: {bbb: fn}});
+      const sources = source_getter.getSources();
+      expect(sources.aaa.bbb).toEqual(fn);
+    });
+
     it('should overwrite existing sources when adding', function () {
       const fn1 = function () {};
       const fn2 = function () {};

@@ -92,7 +92,7 @@ function sanitizeSourcesList (input) {
  * @returns {SourcesList}
  * @ignore
  */
-function mergeSourcesList (a, b) {
+function mergeSourcesList (a = {}, b = {}) {
   Object.keys(b).forEach(function (key) {
     const val = b[key];
     if (typeof val === 'function') {
