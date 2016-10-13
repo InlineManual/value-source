@@ -1,6 +1,6 @@
 {
   "name": "@fczbkk/value-source",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Getter for values from various sources, with JSON-friendly config.",
   "repository": {
     "type": "git",
