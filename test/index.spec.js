@@ -213,6 +213,14 @@ describe('Value Source', function () {
 
   describe('default sources', function () {
 
+    describe('direct', function () {
+
+      it('should return provided parameter unchanged', function () {
+        expect(default_sources.direct('aaa')).toEqual('aaa');
+      });
+
+    });
+
     describe('global', function () {
 
       afterEach(function () {

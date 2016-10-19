@@ -207,6 +207,10 @@ export function constructSourceGetter (sources = default_sources) {
  */
 export const default_sources = {
 
+  direct: function (value) {
+    return value;
+  },
+
   global: function (path = '', parameters = []) {
     const root = window || global;
     const result = getNestedProperty(root, path);
