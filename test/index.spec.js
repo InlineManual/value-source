@@ -331,6 +331,30 @@ describe('Value Source', function () {
 
       });
 
+      describe('frame_id', function () {
+
+        let original_id;
+
+        beforeAll(function () {
+          original_id = window.id;
+        });
+
+        afterEach(function () {
+          window.id = original_id;
+        });
+
+        it('window without ID', function () {
+          delete window.id;
+          expect(default_sources.environment.frame_id()).toEqual('');
+        });
+
+        it('window with ID', function () {
+          window.id = 'aaa';
+          expect(default_sources.environment.frame_id()).toEqual('aaa');
+        });
+
+      });
+
       describe('frame_element', function () {
         // TODO can not be tested in PhantomJS
       });

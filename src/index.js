@@ -231,6 +231,11 @@ export const default_sources = {
       return window.name || '';
     },
 
+    // returns frame ID
+    frame_id: function () {
+      return window.id || '';
+    },
+
     // returns number of parent frames above current document
     frame_depth: function () {
       let result = 0;
