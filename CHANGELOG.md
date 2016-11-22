@@ -1,3 +1,13 @@
+<a name="1.3.0"></a>
+# [1.3.0](https://github.com/fczbkk/value-source/compare/v1.2.0...v1.3.0) (2016-11-22)
+
+
+### Features
+
+* add `environment.frame_id` ([9b08eac](https://github.com/fczbkk/value-source/commit/9b08eac))
+
+
+
 <a name="1.2.0"></a>
 # [1.2.0](https://github.com/fczbkk/value-source/compare/v1.1.0...v1.2.0) (2016-10-19)
 
