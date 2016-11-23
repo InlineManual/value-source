@@ -1,3 +1,13 @@
+<a name="1.3.2"></a>
+## [1.3.2](https://github.com/fczbkk/value-source/compare/v1.3.1...v1.3.2) (2016-11-23)
+
+
+### Bug Fixes
+
+* prevent "invalid invocation" error in Chrome ([40420d1](https://github.com/fczbkk/value-source/commit/40420d1))
+
+
+
 <a name="1.3.1"></a>
 ## [1.3.1](https://github.com/fczbkk/value-source/compare/v1.3.0...v1.3.1) (2016-11-23)
 
