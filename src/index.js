@@ -231,9 +231,11 @@ export const default_sources = {
       return window.name || '';
     },
 
-    // returns frame ID
+    // returns ID of parent frame element, or `null` if ID is not set or there's
+    // no parent frame
     frame_id: function () {
-      return window.id || '';
+      const fallback_fn = function () {return null;};
+      getNestedProperty(window, 'frameElement.getAttribute', fallback_fn)('id');
     },
 
     // returns number of parent frames above current document
