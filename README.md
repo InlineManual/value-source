@@ -18,9 +18,36 @@ npm install @fczbkk/value-source --save
 Then use in your project like this:
 
 ```javascript
-import ValueSource from '@fczbkk/value-source';
+import {constructSourceGetter} from '@fczbkk/value-source';
 
-// TODO
+// create getter with default sources 
+const my_sources = constructSourceGetter();
+
+// get simple value
+my_sources.getValue({source: 'direct', parameters: ['aaa']}); // "aaa"
+
+// get value of global property
+window.aaa = {bbb: 'ccc'};
+my_sources.getValue({source: 'global', parameters: ['aaa.bbb']}); // "ccc"
+
+// get element
+my_sources.getValue({source: 'element', parameters: ['body']}); // document.body
+```
+
+You can set your own sources:
+
+```javascript
+my_sources.addSources({
+  square: function (input) {return input * input;}
+});
+
+my_sources.getValue({source: 'square', parameters: [2]}); // 4
+```
+
+You can remove sources:
+
+```javascript
+my_sources.removeSources(['square']);
 ```
 
 ## Documentation
