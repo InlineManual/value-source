@@ -165,6 +165,33 @@ Returns **any**
 
 Source of predefined source getters.
 
+#### direct
+
+Directly returns unchanged value.
+
+**Parameters**
+
+-   `value` **any** 
+
+Returns **any** 
+
+#### global
+
+Finds value in global namespace.
+
+**Parameters**
+
+-   `path` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** Dot separated path to value in global namespace.
+-   `parameters` **[Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)** 
+
+Returns **any** 
+
+### current_url
+
+Returns full URL of current document.
+
+Returns **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** 
+
 ## Bug reports, feature requests and contact
 
 If you found any bugs, if you have feature requests or any questions, please, either [file an issue at GitHub](https://github.com/fczbkk/value-source/issues) or send me an e-mail at <a href="mailto:riki@fczbkk.com">riki@fczbkk.com</a>.

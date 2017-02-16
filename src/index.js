@@ -207,10 +207,21 @@ export function constructSourceGetter (sources = default_sources) {
  */
 export const default_sources = {
 
+  /**
+   * Directly returns unchanged value.
+   * @param {*} value
+   * @returns {*}
+   */
   direct: function (value) {
     return value;
   },
 
+  /**
+   * Finds value in global namespace.
+   * @param {string} path - Dot separated path to value in global namespace.
+   * @param {Array} parameters
+   * @returns {*}
+   */
   global: function (path = '', parameters = []) {
     const root = window || global;
     const result = getNestedProperty(root, path);
@@ -221,7 +232,10 @@ export const default_sources = {
 
   environment: {
 
-    // returns full URL of current document
+    /**
+     * Returns full URL of current document.
+     * @returns {string}
+     */
     current_url: function () {
       return document.location.toString();
     },

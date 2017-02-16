@@ -1,3 +1,5 @@
+var UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+
 module.exports = {
   entry: './src/index.js',
   output: {
@@ -13,5 +15,14 @@ module.exports = {
         loaders: ['babel-loader']
       }
     ]
-  }
+  },
+  plugins: [
+    new UglifyJsPlugin({
+      compress: {
+        dead_code: true
+      },
+      beautify: true,
+      mangle: false
+    })
+  ]
 };
