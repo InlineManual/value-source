@@ -331,15 +331,15 @@ describe('Value Source', function () {
 
       });
 
-      describe('frame_id', function () {
+      xdescribe('frame_id', function () {
         // TODO can not be tested in PhantomJS
       });
 
-      describe('frame_element', function () {
+      xdescribe('frame_element', function () {
         // TODO can not be tested in PhantomJS
       });
 
-      describe('frame_depth', function () {
+      xdescribe('frame_depth', function () {
         // TODO can not be tested in PhantomJS
       });
 

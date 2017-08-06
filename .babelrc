@@ -2,11 +2,21 @@
   "plugins": ["transform-object-assign"],
   "env": {
     "es5": {
-      "presets": ["es2015"]
+      "presets": ["env"]
     },
     "es6": {
       "presets": [
-        ["es2015", {"modules": false}]
+        ["env", {"modules": false, "loose": true}]
+      ]
+    },
+    "test": {
+      "presets": ["env"],
+      "plugins": [
+        ["istanbul", {
+          "exclude": [
+            "test/**/*.js"
+          ]
+        }]
       ]
     }
   }

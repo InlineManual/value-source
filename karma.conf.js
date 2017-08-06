@@ -1,10 +1,15 @@
+const webpack_config = require('./webpack.config.js');
+
+
 module.exports = function (config) {
   config.set({
     basePath: '',
     frameworks: ['jasmine'],
     files: ['test/**/*.spec.js'],
     preprocessors: {'test/**/*.spec.js': ['webpack']},
-    webpack: webpack_config,
+    webpack: {
+      module: webpack_config.module
+    },
     webpackMiddleware: {noInfo: true},
     reporters: ['coverage', 'jasmine-diff', 'mocha'],
     mochaReporter: {
@@ -20,15 +25,4 @@ module.exports = function (config) {
     browsers: ['PhantomJS'],
     singleRun: true
   });
-};
-
-var webpack_config = {
-  module: {
-    loaders: [
-      {
-        test: /\.js$/,
-        loaders: ['babel-loader', 'eslint-loader']
-      }
-    ]
-  }
 };

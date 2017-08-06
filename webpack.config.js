@@ -1,10 +1,11 @@
-var UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const path = require('path');
 
 module.exports = {
   entry: './src/index.js',
   output: {
     filename: 'index.js',
-    path: './lib/',
+    path: path.resolve(__dirname, 'lib'),
     library: 'ValueSource',
     libraryTarget: 'umd'
   },
@@ -12,7 +13,7 @@ module.exports = {
     loaders: [
       {
         test: /\.js$/,
-        loaders: ['babel-loader']
+        loaders: ['babel-loader', 'eslint-loader']
       }
     ]
   },

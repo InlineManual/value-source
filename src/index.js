@@ -2,6 +2,7 @@ import {
   getNestedProperty,
   deleteNestedProperty
 } from 'get-nested-property';
+import all_sources from './sources/index.js';
 import arrayReduce from 'array-reduce-prototypejs-fix';
 
 /**
@@ -205,84 +206,4 @@ export function constructSourceGetter (sources = default_sources) {
  * @name default_sources
  * @type {{global: default_sources.global, environment: {current_url: default_sources.environment.current_url, frame_name: default_sources.environment.frame_name, frame_depth: default_sources.environment.frame_depth, frame_element: default_sources.environment.frame_element}, document: {element: default_sources.document.element}}}
  */
-export const default_sources = {
-
-  /**
-   * Directly returns unchanged value.
-   * @param {*} value
-   * @returns {*}
-   */
-  direct: function (value) {
-    return value;
-  },
-
-  /**
-   * Finds value in global namespace.
-   * @param {string} path - Dot separated path to value in global namespace.
-   * @param {Array} parameters
-   * @returns {*}
-   */
-  global: function (path = '', parameters = []) {
-    const root = window || global;
-    const result = getNestedProperty(root, path);
-    return typeof result === 'function'
-      ? result.apply(null, parameters)
-      : result;
-  },
-
-  environment: {
-
-    /**
-     * Returns full URL of current document.
-     * @returns {string}
-     */
-    current_url: function () {
-      return document.location.toString();
-    },
-
-    // returns frame name
-    frame_name: function () {
-      return window.name || '';
-    },
-
-    // returns ID of parent frame element, or `null` if ID is not set or there's
-    // no parent frame
-    frame_id: function () {
-      return (window.frameElement === null)
-        ? null
-        : window.frameElement.getAttribute('id');
-    },
-
-    // returns number of parent frames above current document
-    frame_depth: function () {
-      let result = 0;
-
-      let current_window = window;
-      while (current_window !== window.top) {
-        result++;
-        current_window = current_window.parent;
-      }
-
-      return result;
-    },
-
-    // returns reference to a FRAME or IFRAME element
-    frame_element: function () {
-      return window.frameElement;
-    }
-
-  },
-
-  document: {
-
-    element: function (selector) {
-      try {
-        return document.querySelector(selector);
-      } catch (error) {
-        return null;
-      }
-    }
-
-  }
-
-};
+export const default_sources = all_sources;
