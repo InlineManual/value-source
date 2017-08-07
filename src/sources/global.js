@@ -8,7 +8,7 @@ import {getNestedProperty} from 'get-nested-property';
  * @returns {*}
  */
 export default function (path = '', parameters = []) {
-  const root = window || global;
+  const root = window;
   const result = getNestedProperty(root, path);
   return typeof result === 'function'
     ? result.apply(null, parameters)
