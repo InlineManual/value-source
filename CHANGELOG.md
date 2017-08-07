@@ -1,3 +1,13 @@
+<a name="1.4.0"></a>
+# [1.4.0](https://github.com/fczbkk/value-source/compare/v1.3.3...v1.4.0) (2017-08-07)
+
+
+### Features
+
+* add sources for element content, value and checked state ([6004577](https://github.com/fczbkk/value-source/commit/6004577))
+
+
+
 <a name="1.3.3"></a>
 ## [1.3.3](https://github.com/fczbkk/value-source/compare/v1.3.2...v1.3.3) (2017-02-16)
 
