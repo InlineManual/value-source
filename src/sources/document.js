@@ -6,12 +6,6 @@ function getElement(selector) {
   return collector.get()[0] || null;
 }
 
-function getElements(selector) {
-  const collector = new ElementCollector(selector);
-  return collector.get();
-}
-
-
 /**
  * Returns single matching element or `null` if no matching element is found.
  * @param {*} selector
