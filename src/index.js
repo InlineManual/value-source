@@ -1,9 +1,13 @@
-import {
-  getNestedProperty,
-  deleteNestedProperty
-} from 'get-nested-property';
-import all_sources from './sources/index.js';
+import {getNestedProperty} from 'get-nested-property';
 import arrayReduce from 'array-reduce-prototypejs-fix';
+import {deleteNestedProperty} from 'get-nested-property';
+import all_sources from './sources/index.js';
+import {
+  sanitizeSourcesList,
+  mergeSourcesList,
+  ensureArray,
+  exists
+} from './utilities.js';
 
 /**
  * Object containing getter functions. The keys are names, the values are either functions or other SourcesList objects.
@@ -26,85 +30,6 @@ import arrayReduce from 'array-reduce-prototypejs-fix';
  * @property {(*|Array)} parameters - List of parameters to be used when calling source getters. Single item of any other type than Array will be converted to Array.
  * @property {*} [default_value] - Value to be returned when sources do not produce any non-null value.
  */
-
-
-/**
- * Checks whether `value` is other than `undefined` or `null`.
- * @param {*} value
- * @returns {boolean}
- * @ignore
- */
-function exists (value) {
-  return typeof value !== 'undefined' && value !== null;
-}
-
-
-/**
- * Checks whether input is Object.
- * @param {*} input
- * @returns {boolean}
- * @ignore
- */
-function isObject (input) {
-  return Object.prototype.toString.call(input) === '[object Object]';
-}
-
-
-/**
- * Converts input to array, unless it already is array.
- * @param {*} input
- * @returns {Array}
- * @ignore
- */
-function ensureArray (input) {
-  return (Array.isArray(input)) ? input : [input];
-}
-
-
-/**
- * Ensures that only Object can be input and the values are either sub-objects or functions.
- * @param {*} input
- * @returns {SourcesList}
- * @ignore
- */
-function sanitizeSourcesList (input) {
-  const result = {};
-
-  if (isObject(input)) {
-    Object.keys(input).forEach(function (key) {
-      const val = input[key];
-      if (typeof val === 'function') {
-        result[key] = val;
-      }
-      if (isObject(val)) {
-        result[key] = sanitizeSourcesList(val);
-      }
-    });
-  }
-
-  return result;
-}
-
-
-/**
- * Recursively adds function properties form `b` to `a`.
- * @param {SourcesList} a
- * @param {SourcesList} b
- * @returns {SourcesList}
- * @ignore
- */
-function mergeSourcesList (a = {}, b = {}) {
-  Object.keys(b).forEach(function (key) {
-    const val = b[key];
-    if (typeof val === 'function') {
-      a[key] = val;
-    }
-    if (isObject(val)) {
-      a[key] = mergeSourcesList(a[key], val);
-    }
-  });
-  return a;
-}
 
 
 /**

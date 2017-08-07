@@ -10,3 +10,13 @@ export function element (selector) {
   const collector = new ElementCollector(selector);
   return collector.get()[0] || null;
 }
+
+
+export function element_content (selector) {
+  // TODO
+}
+
+
+export function element_value (selector) {
+  // TODO
+}
