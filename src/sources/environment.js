@@ -47,3 +47,21 @@ export function frame_depth () {
 export function frame_element () {
   return window.frameElement;
 }
+
+
+/**
+ * Returns value of frame element's attribute. Returns `null` if it is not possible.
+ * @param {string} attribute_name
+ * @returns {string|null}
+ */
+export function form_attribute (attribute_name) {
+  if (typeof attribute_name !== 'string') {
+    return null;
+  }
+
+  if (!window.frameElement) {
+    return null;
+  }
+
+  return window.frameElement.getAttribute(attribute_name);
+}

@@ -48,4 +48,8 @@ describe('environment', function () {
     // TODO can not be tested in PhantomJS
   });
 
+  xdescribe('frame_attribute', function () {
+    // TODO can not be tested in PhantomJS
+  });
+
 });
