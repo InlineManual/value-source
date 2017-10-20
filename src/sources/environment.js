@@ -54,7 +54,7 @@ export function frame_element () {
  * @param {string} attribute_name
  * @returns {string|null}
  */
-export function form_attribute (attribute_name) {
+export function frame_attribute (attribute_name) {
   if (typeof attribute_name !== 'string') {
     return null;
   }
