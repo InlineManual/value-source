@@ -1,3 +1,14 @@
+<a name="1.5.0"></a>
+# [1.5.0](https://github.com/fczbkk/value-source/compare/v1.4.0...v1.5.0) (2017-10-20)
+
+
+### Features
+
+* add `environment.frame_attribute` ([fb97251](https://github.com/fczbkk/value-source/commit/fb97251))
+* add `environment.frame_attribute` ([bfc864e](https://github.com/fczbkk/value-source/commit/bfc864e))
+
+
+
 <a name="1.4.0"></a>
 # [1.4.0](https://github.com/fczbkk/value-source/compare/v1.3.3...v1.4.0) (2017-08-07)
 
