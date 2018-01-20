@@ -42,7 +42,7 @@ export function frame_depth () {
 
 /**
  * Returns reference to a FRAME or IFRAME element.
-  * @returns {Object}
+ * @returns {Object}
  */
 export function frame_element () {
   return window.frameElement;
@@ -64,4 +64,27 @@ export function frame_attribute (attribute_name) {
   }
 
   return window.frameElement.getAttribute(attribute_name);
+}
+
+/**
+ * Returns `true` if current window (or any of its frames) currently has focus.
+ * @returns {boolean}
+ */
+export function window_focus () {
+    const hasFocus = (doc) => {
+      if (doc.hasFocus()) {
+        return true;
+      }
+
+      const frames = document.querySelectorAll('iframe, frame');
+      for (let i = 0; i < frames.length; i++) {
+        if (hasFocus(frames[i])) {
+          return true;
+        }
+      }
+
+      return false;
+    };
+
+    return hasFocus(document);
 }

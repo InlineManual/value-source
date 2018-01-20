@@ -52,4 +52,19 @@ describe('environment', function () {
     // TODO can not be tested in PhantomJS
   });
 
+  // TODO can not be tested in PhantomJS
+  xdescribe('window_focus', function () {
+
+    it('should return `true` if window has focus', function () {
+      document.body.focus();
+      expect(x.window_focus()).toEqual(true);
+    });
+
+    it('should return `false` if window does not have focus', function () {
+      document.body.blur();
+      expect(x.window_focus()).toEqual(false);
+    });
+
+  });
+
 });

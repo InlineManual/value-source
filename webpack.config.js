@@ -1,4 +1,4 @@
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const webpack = require('webpack');
 const path = require('path');
 
 module.exports = {
@@ -18,12 +18,6 @@ module.exports = {
     ]
   },
   plugins: [
-    new UglifyJsPlugin({
-      compress: {
-        dead_code: true
-      },
-      beautify: true,
-      mangle: false
-    })
+    new webpack.optimize.UglifyJsPlugin()
   ]
 };
