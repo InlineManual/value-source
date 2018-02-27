@@ -1,3 +1,13 @@
+<a name="1.6.1"></a>
+## [1.6.1](https://github.com/fczbkk/value-source/compare/v1.6.0...v1.6.1) (2018-02-27)
+
+
+### Bug Fixes
+
+* allow getting value of custom input fields ([4d389f4](https://github.com/fczbkk/value-source/commit/4d389f4)), closes [inlinemanual/player#1185](https://github.com/inlinemanual/player/issues/1185)
+
+
+
 <a name="1.6.0"></a>
 # [1.6.0](https://github.com/fczbkk/value-source/compare/v1.5.0...v1.6.0) (2018-01-20)
 
