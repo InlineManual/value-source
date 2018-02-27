@@ -103,6 +103,16 @@ describe('document', function () {
       expect(result).toEqual('aaa');
     });
 
+    it('should return value of INPUT field of custom type', function () {
+      const createCustomInput = (type) => {
+        return createElementTag('input', {value: 'aaa', type: type});
+      };
+
+      expect(x.element_value(createCustomInput('submit'))).toEqual('aaa');
+      expect(x.element_value(createCustomInput('checkbox'))).toEqual('aaa');
+      expect(x.element_value(createCustomInput('email'))).toEqual('aaa');
+    });
+
     it('should return value of TEXTAREA', function () {
       const elm = createElementTag('textarea');
       elm.innerHTML = 'aaa';

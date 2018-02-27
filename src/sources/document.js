@@ -37,7 +37,7 @@ export function element_value (selector) {
   const found_element = getElement(selector);
   if (found_element) {
 
-    if (found_element.tagName === 'INPUT' && found_element.type === 'text') {
+    if (found_element.tagName === 'INPUT') {
       return found_element.value;
     }
 
